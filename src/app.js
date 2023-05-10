@@ -23,6 +23,13 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(cors(corsOptions));
 
-app.use(customLogger("custom-logger"));
+app.use(customLogger("FarmPouchLogger"));
+
+
+app.get("/ping",(req,res)=>{
+  res.status(200).json({
+    "message": "Welcome from my app"
+  });
+})
 
 module.exports = app;
